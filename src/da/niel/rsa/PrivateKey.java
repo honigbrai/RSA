@@ -9,4 +9,12 @@ public class PrivateKey {
         this.n = n;
         this.d = d;
     }
+
+    public BigInteger getN() {
+        return this.n;
+    }
+
+    public BigInteger getD() {
+        return this.d;
+    }
 }

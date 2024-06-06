@@ -18,4 +18,16 @@ public class KeyPair {
         this.publicKey = new PublicKey(N, e);
     }
 
+    public KeyPair(PrivateKey privateKey, PublicKey publicKey) throws Exception {
+        this.privateKey = privateKey;
+        this.publicKey = publicKey;
+    }
+
+    public PrivateKey getPrivateKey() {
+        return this.privateKey;
+    }
+
+    public PublicKey getPublicKey() {
+        return this.publicKey;
+    }
 }

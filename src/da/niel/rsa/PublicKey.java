@@ -10,4 +10,12 @@ public class PublicKey {
         this.n = n;
         this.e = e;
     }
+
+    public BigInteger getN() {
+        return this.n;
+    }
+
+    public BigInteger getE() {
+        return this.e;
+    }
 }

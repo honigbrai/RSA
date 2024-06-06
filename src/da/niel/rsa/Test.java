@@ -1,13 +1,12 @@
 package da.niel.rsa;
 
 import java.math.BigInteger;
-import java.security.KeyPair;
 import java.security.interfaces.RSAKey;
 
 public class Test {
 
-    public static void main(String... args){
-        System.out.println("Searching for prime");
+    public static void main(String... args) throws Exception {
+        /*System.out.println("Searching for prime");
         BigInteger p = Util.prime(1024*2);
         System.out.println("p= " + p);
         BigInteger q = Util.prime(1024*2);
@@ -19,7 +18,10 @@ public class Test {
         System.out.println("N= " + N);
         System.out.println("phiN= " + phiN);
         System.out.println("e= " + e);
-        System.out.println("d= " + d);
+        System.out.println("d= " + d);*/
+
+        KeyPair kp = new KeyPair(1024*2);
+        KeyPair kp2 = new KeyPair(kp.getPrivateKey(), kp.getPublicKey());
     }
 
 }
