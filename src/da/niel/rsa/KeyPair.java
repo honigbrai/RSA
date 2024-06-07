@@ -18,7 +18,12 @@ public class KeyPair {
         this.publicKey = new PublicKey(N, e);
     }
 
-    public KeyPair(PrivateKey privateKey, PublicKey publicKey) throws Exception {
+    public KeyPair(PrivateKey privateKey, PublicKey publicKey) throws RSAPairDoesNotMatchException {
+        byte[] bi = publicKey.encrypt(new byte[]{100, 20});
+        byte[] ba = privateKey.decrypt(bi);
+        if(ba[0] != 100 || ba[1] != 20){
+            throw new RSAPairDoesNotMatchException();
+        }
         this.privateKey = privateKey;
         this.publicKey = publicKey;
     }

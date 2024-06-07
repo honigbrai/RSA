@@ -1,7 +1,10 @@
 package da.niel.rsa;
 
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.interfaces.RSAKey;
+import java.util.Arrays;
+import java.util.Base64;
 
 public class Test {
 
@@ -21,7 +24,9 @@ public class Test {
         System.out.println("d= " + d);*/
 
         KeyPair kp = new KeyPair(1024*2);
-        KeyPair kp2 = new KeyPair(kp.getPrivateKey(), kp.getPublicKey());
+        byte[] bi = kp.getPublicKey().encrypt("Hello World".getBytes());
+        System.out.println(Base64.getEncoder().encodeToString(bi));
+        System.out.println(new String(kp.getPrivateKey().decrypt(bi), StandardCharsets.UTF_8));
     }
 
 }

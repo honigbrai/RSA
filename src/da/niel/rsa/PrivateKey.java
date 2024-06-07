@@ -17,4 +17,8 @@ public class PrivateKey {
     public BigInteger getD() {
         return this.d;
     }
+
+    public byte[] decrypt(byte[] bytes){
+        return new BigInteger(1, bytes).modPow(this.d, this.n).toByteArray();
+    }
 }

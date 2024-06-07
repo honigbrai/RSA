@@ -18,4 +18,8 @@ public class PublicKey {
     public BigInteger getE() {
         return this.e;
     }
+
+    public byte[] encrypt(byte[] bytes){
+        return new BigInteger(1, bytes).modPow(this.e, this.n).toByteArray();
+    }
 }
